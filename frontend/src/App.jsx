@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
+import StudentDashboard from './pages/StudentDashboard'; // Add this import!
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
+          {/* Add the new student route below! */}
+          <Route path="/student" element={<StudentDashboard />} />
         </Routes>
       </div>
     </Router>
