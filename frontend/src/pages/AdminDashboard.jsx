@@ -7,15 +7,17 @@ export default function AdminDashboard() {
   const [error, setError] = useState('');
 
   const handleScan = async (text) => {
-    // This stops the scanner from firing a hundred times a second
     if (text) {
+      // 1. THIS LINE PROVES THE SCANNER WORKS
+      console.log("✅ I successfully scanned a code! The ID is:", text); 
+      
       try {
-        // Send the scanned text (the UUID) to our Python backend
         const response = await scanToken(text);
         setMessage(`Success! Meal token verified and marked as used.`);
         setError('');
       } catch (err) {
-        // If the backend says the token is invalid or already used
+        // 2. THIS LINE SHOWS US IF THE BACKEND REJECTED IT
+        console.error("❌ Backend Error:", err); 
         setError(err.response?.data?.detail || "Invalid or already used token.");
         setMessage('');
       }
