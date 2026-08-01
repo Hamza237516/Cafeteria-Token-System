@@ -37,7 +37,14 @@ export default function AdminDashboard() {
         borderRadius: '10px', 
         overflow: 'hidden' 
       }}>
-        <Scanner onResult={(text) => handleScan(text)} />
+        <Scanner 
+          onResult={(text) => handleScan(text)} 
+          onScan={(result) => {
+            // Version 2 compatibility
+            if (result && result.length > 0) handleScan(result[0].rawValue);
+          }}
+          onError={(error) => console.log("Optical Error:", error)}
+        />
       </div>
 
       {/* Status Messages */}
