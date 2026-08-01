@@ -50,7 +50,7 @@ export default function StudentDashboard() {
           display: 'inline-block'
         }}>
           <h3 style={{ color: '#4CAF50', marginTop: 0 }}>Token Active</h3>
-          <QRCodeCanvas value={tokenId} size={200} />
+         <QRCodeCanvas value={tokenId} size={256} marginSize={4} />
           <p style={{ fontSize: '12px', color: 'gray', marginTop: '10px' }}>ID: {tokenId}</p>
         </div>
       ) : (
