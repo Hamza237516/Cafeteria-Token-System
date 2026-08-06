@@ -50,3 +50,55 @@ CLIENT (Browser)                 SERVER (Localhost)
                                  │  SQLite Database   │
                                  │  (SQLAlchemy ORM)  │
                                  └────────────────────┘
+🛡️ Key Features & Security
+Frictionless Authentication: A streamlined onboarding flow that securely registers new students or verifies returning users instantly.
+
+Cryptographic Tokens: Leverages UUID4 generation to create mathematically unique, unguessable meal tokens.
+
+Double-Booking Defense: Backend middleware enforces a strict database constraint, automatically rejecting duplicate token generation requests.
+
+Anti-Screenshot Verification: Once an admin scans a token, the database permanently updates its state. If a student attempts to screenshot and share a QR code, the admin scanner immediately flags it as "already used."
+
+Optical Fallback System: The admin dashboard includes a manual-override input to ensure operations continue even under poor lighting conditions.
+
+🛠️ Local Installation
+Because this is a decoupled full-stack application, the frontend and backend must be run simultaneously in two separate terminal windows.
+
+Prerequisites
+Node.js (v18+)
+
+Python (3.10+)
+
+1. Start the Backend API
+Open your first terminal window and navigate to the project root:
+
+Bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate  # Windows users: venv\Scripts\activate
+pip install fastapi uvicorn sqlalchemy
+uvicorn main:app --reload
+The API is now live and listening at: http://127.0.0.1:8000
+
+2. Start the Frontend Application
+Leave the backend running, open a new terminal window, and navigate to the project root:
+
+Bash
+cd frontend
+npm install
+npm run dev
+The web interface is now live at: http://localhost:5173
+
+📱 Application Flow
+Student Portal (/login): Enter a unique Roll Number to access the dashboard.
+
+Token Generation (/student): Request today's allocation. A scannable, margin-optimized QR code is rendered directly on screen.
+
+Admin Verification (/admin): On a separate device or tab, open the Admin dashboard. Point the camera at a student's QR code to securely read the UUID and instantly mark the meal as consumed in the database.
+
+🚀 Future Enhancements
+[ ] Role-Based Access Control (RBAC): Implementing JWT tokens to explicitly separate Admin accounts from Student accounts.
+
+[ ] Cloud Deployment: Hosting the backend on Render and the frontend on Vercel for public access.
+
+[ ] Data Analytics: Creating a dashboard for admins to visualize peak cafeteria hours and total meals served per week.
