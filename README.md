@@ -12,17 +12,8 @@
 
 </div>
 
----
 
-## 📖 Table of Contents
-- [Project Overview](#-project-overview)
-- [System Architecture](#-system-architecture)
-- [Key Features & Security](#-key-features--security)
-- [Local Installation](#-local-installation)
-- [Application Flow](#-application-flow)
-- [Future Enhancements](#-future-enhancements)
 
----
 
 ## 🎯 Project Overview
 
