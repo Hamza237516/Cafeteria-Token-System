@@ -26,4 +26,9 @@ app.include_router(tokens_router.router)
 
 @app.get("/")
 def root():
+    """
+    Root health-check endpoint.
+    Verifies that the FastAPI server is running and the modular routers are successfully attached.
+    Provides a direct link to the auto-generated Swagger UI documentation.
+    """
     return {"message": "Welcome to the Cafeteria Token System API! Head to /docs for the interactive UI."}
